@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 const locationSchema = mongoose.Schema({
   locationName: String,
-  Transport: String,
-  LocalCuisine: String,
-  Accomidation: String,
+  Transport: Array,
+  LocalCuisine: Array,
+  Accomidation: Array,
   Country: {type: mongoose.Schema.Types.ObjectId, ref: 'destinations'}
 })
 
