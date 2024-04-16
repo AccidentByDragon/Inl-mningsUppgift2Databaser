@@ -1,5 +1,6 @@
-import Destination from "../Models/destinationModel";
+import Destination from "../Models/destinationModel.js";
 export default function destination(server, mongoose) {
+
 /*fields are:
   country: String,
   climate: String,
@@ -8,7 +9,7 @@ export default function destination(server, mongoose) {
   server.get('/api/destinations', async (req, res) => {
     try {
       const destination = await Destination.find()
-      res.status(200).json({ message: 'you are trying to a destination', destination });
+      res.status(200).json({ message: 'you are trying find to all destination', destination });
     } catch (error) {
       res.status(500).json({ error: error, errormessage: "could not connect to server database"})
     }
@@ -24,7 +25,7 @@ export default function destination(server, mongoose) {
   });
   //experiment with a get/fetch using country, as ID assinged by MongoDB is awkward to remember
 
-  
+
   server.post('/api/destinations', async (req, res) => {
     try {
       const country = req.body.country;

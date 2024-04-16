@@ -5,6 +5,6 @@ const destinationSchema = mongoose.Schema({
   locations: Array //may be possible to use populate, easiest emthod would be to use strings
 })
 
-const Destination = mongoose.model('locations', destinationSchema);
+const Destination = mongoose.model('destinations', destinationSchema);
 
 export default Destination;

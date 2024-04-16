@@ -1,5 +1,6 @@
-import Location from "../Models/locationModel";
+import Location from "../Models/locationModel.js";
 export default function location(server, mongoose) {
+
   /*fields are:
   locationName: String,
   Transport: Array,
@@ -10,8 +11,8 @@ export default function location(server, mongoose) {
 */
   server.get('/api/locations', async (req, res) => {
     try {
-      const locations = await Location.find().populate("Country") // here we refer to key from object
-      res.status(200).json({ message: 'you are trying to find a location', locations }); 
+      const templocations = await Location.find().populate("Country") // here we refer to key from object
+      res.status(200).json({ message: 'you are trying to find all locations', locations: templocations }); 
     } catch (error) {
       res.status(500).json({ error: error })
     }
