@@ -22,4 +22,54 @@ export default function destination(server, mongoose) {
       res.status(500).json({ error: error })
     }
   });
+  //experiment with a get/fetch using country, as ID assinged by MongoDB is awkward to remember
+
+  
+  server.post('/api/destinations', async (req, res) => {
+    try {
+      const country = req.body.country;
+      const climate = req.body.climate;
+      const locations = [];
+
+      if (country.length <= 0 || climate.length <= 0) {
+        res.status(400).json({ message: "Body must contain country and climate with more than 0 characters" })
+      }
+      else {
+        const newDest = new Destination({
+          country: country,
+          climate: climate,
+          locations: locations
+        })
+        await newDest.save();
+        console.log(newDest);
+        res.status(201).json({ createdDestination: newDest });
+      }
+    } catch (error) {
+      res.status(500).json({ error: error })
+    }
+  });
+
+  server.put('/api/destinations/:id', async (req, res) => {
+    try {
+      const updateDestination = await Destination.findByIdAndUpdate(req.params.id, req.body);
+      const returnDestination = await Destination.findById(req.params.id);
+      res.json({ updatedDestination: updateDestination, Changedto: returnDestination });
+    }
+    catch (error) {
+      res.status(500).json({ error: error })
+    }
+  });
+
+  server.delete('/api/destinations/:id', async (req, res) => {
+    try {
+      const deletedDestination = await Destination.findByIdAndDelete(req.params.id);
+      if (!deletedDestination) {
+        return res.status(404).json({ message: "destination wasn't found" });
+      }
+      res.json({ message: "destination has been deleted!" }); // Bekräftelse på att användaren har raderats.
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "An error occured while deleting destination." });
+    }
+  });
 }
