@@ -47,14 +47,14 @@ export default function location(server, mongoose) {
        if (correctIdCheck == true) {
          const searchlocation = await Location.findById(req.params.id).populate("Country") // here we refer to key from object
          if (!searchlocation) {
-           res.status(404).json({ message: 'Bad Request: No object with id was found'})
+           res.status(404).json({ message: "Bad Request: Location matching id wasn't found" });
          }
          else {
-           res.status(200).json({ message: 'you are trying to find a location', searchlocation })
+           res.status(200).json({ message: 'you are trying to find a location' })
          }
        }
        else {
-         res.status(400).json({ message: 'Bad Request: you did not give a valid Id'})
+         res.status(400).json({ message: 'Bad Request: you did not give a valid Id' })
        }
 
     } catch (error) {
@@ -122,7 +122,7 @@ export default function location(server, mongoose) {
         else {
           const returnLocation = await Location.findById(req.params.id);
           if (!returnLocation) {
-            res.status(404).json({ message: 'Bad Request: No object with id was found' })
+            res.status(404).json({ message: "Bad Request: Location matching id wasn't found"});
           }
           else {
             const updateLocation = await Location.findByIdAndUpdate(req.params.id, req.body);
@@ -131,7 +131,7 @@ export default function location(server, mongoose) {
           }
         }
       } else {
-        res.status(400).json({ message: 'Bad Request: you did not provide a valid Id' })
+        res.status(400).json({ message: 'Bad Request: you did not provide a valid Id'})
       }
     }
     catch (error) {
@@ -145,17 +145,17 @@ export default function location(server, mongoose) {
       if (correctIdCheck == true) {
         const deletedLocation = await Location.findByIdAndDelete(req.params.id);
         if (!deletedLocation) {
-          return res.status(404).json({ message: "Bad Request: Location amtching id wasn't found" });
+          res.status(404).json({ message: "Bad Request: Location matching id wasn't found"});
         }
         else {
-          res.json({ message: "Location has been deleted!" }); // Bekräftelse på att användaren har raderats.
+          res.json({ message: "Location has been deleted!", deletedLocation }); // Bekräftelse på att användaren har raderats.
         }
       } else {
-        res.status(400).json({ message: 'Bad Request: you did not provide a valid Id' })
+        res.status(400).json({ message: 'Bad Request: you did not provide a valid Id'})
       }
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "An error occured while deleting location." });
+      res.status(500).json({ message: "An error occured while deleting location."});
     }
   });
 
