@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 const locationSchema = mongoose.Schema({
   locationName: String,
   Transport: Array,
-  LocalCuisine: Array,
+  Restauraunts: Array,
   Accomidation: Array,
   Country: {type: mongoose.Schema.Types.ObjectId, ref: 'destinations'}
 })
