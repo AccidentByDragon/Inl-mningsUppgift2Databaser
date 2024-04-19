@@ -42,7 +42,12 @@ export default function destination(server, mongoose) {
       const correctIdCheck = mongoose.isValidObjectId(req.params.id)
       if (correctIdCheck == true) {
         const destination = await Destination.findById(req.params.id)
-        res.status(200).json({ message: 'you are trying to a destination', destination }) //should this be country instead?
+        if (!destination) {
+          return res.status(404).json({ message: "Bad Request: Destination matching id wasn't found" });
+        }
+        else {
+          res.status(200).json({ message: 'you are trying to a destination', destination }) //should this be country instead?
+        }
       } else {
         res.status(400).json({ message: 'Bad request: you did not give a valid Id' })
       }
@@ -89,9 +94,16 @@ export default function destination(server, mongoose) {
           res.status(400).json({ message: "Body must contain country and climate with more than 0 characters" })
         }
         else {
-          const updateDestination = await Destination.findByIdAndUpdate(req.params.id, req.body);
-          const returnDestination = await Destination.findById(req.params.id);
-          res.json({ updatedDestination: updateDestination, Changedto: returnDestination });
+          const checkDestination = await Destination.findById(req.params.id)
+          if (!checkDestination) {
+            return res.status(404).json({ message: "Bad Request: Destination matching id wasn't found" });
+          }
+          else {
+            const updateDestination = await Destination.findByIdAndUpdate(req.params.id, req.body);
+            const returnDestination = await Destination.findById(req.params.id);
+            res.json({ updatedDestination: updateDestination, Changedto: returnDestination });
+          }
+
         }
       } else {
         res.status(400).json({ message: 'Bad request: you did not give a valid Id' })
@@ -107,7 +119,12 @@ export default function destination(server, mongoose) {
       const correctIdCheck = mongoose.isValidObjectId(req.params.id)
       if (correctIdCheck == true) {
         const deletedDestination = await Destination.findByIdAndDelete(req.params.id);
-        res.json({ message: 'destination has been deleted!' }); // Bekräftelse på att användaren har raderats.
+        if (!deletedDestination) {
+          return res.status(404).json({ message: "Bad Request: Destination matching id wasn't found" });
+        }
+        else {
+          res.json({ message: 'destination has been deleted!' }); // Bekräftelse på att användaren har raderats.
+        }
       } else {
         res.status(400).json({ message: 'Bad request: you did not give a valid Id' })
       }

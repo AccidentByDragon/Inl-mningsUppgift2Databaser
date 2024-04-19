@@ -23,7 +23,7 @@ server.use(express.json())
     Lösenord - <Password>
     Databasnamnet (Optional) - <DB-Name>
 */
-mongoose.connect("mongodb+srv://karl17loe:DodgyFish12@cluster0.lmj4hf7.mongodb.net/")
+mongoose.connect("mongodb+srv://karl17loe:DodgyFish12@cluster0.lmj4hf7.mongodb.net/PVTInlämningsuppgift2")
 /*
   Byt ut connection-string'en med er egna. Ni hittar er på MongoDB Atlas genom att gå in på: 
 
