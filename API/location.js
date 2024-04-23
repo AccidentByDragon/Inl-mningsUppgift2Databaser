@@ -50,7 +50,7 @@ export default function location(server, mongoose) {
            res.status(404).json({ message: "Bad Request: Location matching id wasn't found" });
          }
          else {
-           res.status(200).json({ message: 'you are trying to find a location' })
+           res.status(200).json({ message: 'you are trying to find a location', searchlocation })
          }
        }
        else {
@@ -127,7 +127,7 @@ export default function location(server, mongoose) {
           else {
             const updateLocation = await Location.findByIdAndUpdate(req.params.id, req.body);
             const NewLocation = await Location.findById(req.params.id);
-            res.json({ updatedLocation: updateLocation, Changedto: NewLocation });
+            res.status(200).json({ updatedLocation: updateLocation, Changedto: NewLocation });
           }
         }
       } else {

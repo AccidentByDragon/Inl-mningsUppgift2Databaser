@@ -25,6 +25,6 @@ API:
     Locations:
       http://localhost:3000/api/locations - Grund http metod som ger all data locations innehåller; stödjer Get och Post
       http://localhost:3000/api/locations/:id - metod för att arbeta med en specifik obejtk med via Id, här byts :id ut mot objektId av den objekt man vill ha; stödjer Get, Put och Delete.
-Test Utförning:
-  Första steget av projektet var att planera ut uppläget av databas scheman, med mål att dela ut informationen så att det blev så enkelt att ha tillgång till det som möjligt
+Testrapport:
+  
   

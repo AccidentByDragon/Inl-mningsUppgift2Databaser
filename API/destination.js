@@ -101,9 +101,8 @@ export default function destination(server, mongoose) {
           else {
             const updateDestination = await Destination.findByIdAndUpdate(req.params.id, req.body);
             const returnDestination = await Destination.findById(req.params.id);
-            res.json({ updatedDestination: updateDestination, Changedto: returnDestination });
+            res.status(200).json({ updatedDestination: updateDestination, Changedto: returnDestination });
           }
-
         }
       } else {
         res.status(400).json({ message: 'Bad request: you did not give a valid Id'})
@@ -123,7 +122,7 @@ export default function destination(server, mongoose) {
           return res.status(404).json({ message: "Bad Request: Destination matching id wasn't found"});
         }
         else {
-          res.json({ message: 'destination has been deleted!' }); // Bekräftelse på att användaren har raderats.
+          res.json({ message: 'destination has been deleted!', deletedDestination }); // Bekräftelse på att användaren har raderats.
         }
       } else {
         res.status(400).json({ message: 'Bad request: you did not give a valid Id'})
