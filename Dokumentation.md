@@ -73,7 +73,7 @@ Locations är den endpoint som innehåller information om resemål, objekten i d
         }
       ]
     }"
-    Vid fel:
+    Möjliga fel:
     Status Kod 500, "could not connect to server database"
   Example request from Locations, using GET http://localhost:3000/api/locations/:id med en accepterad objektID
   Med en Status Kod 200:
@@ -109,6 +109,7 @@ Locations är den endpoint som innehåller information om resemål, objekten i d
         "__v": 0
     }
     Möjliga Fel och meddelanden, för denna request:
+    
       ID som inte är giltig/accepterad av MongoDB:
         Status 400
         "message": "Bad Request: you did not give a valid Id"
