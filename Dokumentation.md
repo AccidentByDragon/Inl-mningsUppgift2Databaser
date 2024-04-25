@@ -115,10 +115,13 @@ Locations är den endpoint som innehåller information om resemål, objekten i d
         "could not connect to server database"
   
   API error handling:
+  
     Status 500, API:et ger denna status kod vid ett kommunikations fel med Databasen/Servern bästa lösningen är omstart av servern.
+  
     Status 400, API:et ger denna error kod vid en Bad request, vanligast är att den ID som en request använder är inte godtagen av MongoDB och är därför ogiltig
+  
     Status 404, API:et är byggd att ge denna status när den inte hittar något som passar på request, oftast beror detta på att den ID som requesten anvädner inte finns i endpointen t.ex om man söker i Locations med ett ObjektId från Destinations.
-    List all possible error codes and their meanings, along with guidance on how to handle these errors in the client application. This will help developers troubleshoot issues and create more robust applications.
+    
 
   API throttling:
     Finns ingen implementerade throttling eller limiting vid nuvarande tillfälle
