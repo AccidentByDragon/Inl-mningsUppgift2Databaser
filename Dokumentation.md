@@ -68,7 +68,7 @@ Locations är den endpoint som innehåller information om resemål, objekten i d
     }"
     Vid fel:
     Status Kod 500, "could not connect to server database"
-  Example request from Locations, using GET http://localhost:3000/api/locations/:id with a correct objektID
+  Example request from Locations, using GET http://localhost:3000/api/locations/:id med en accepterad objektID
   Med en Status Kod 200:
   
     "message": "you are trying to find a location",
