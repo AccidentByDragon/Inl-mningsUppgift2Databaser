@@ -47,7 +47,7 @@ export default function location(server, mongoose) {
        if (correctIdCheck == true) {
          const searchlocation = await Location.findById(req.params.id).populate("Country") // here we refer to key from object
          if (!searchlocation) {
-           res.status(404).json({ message: "Bad Request: Location matching id wasn't found" });
+           res.status(404).json({ message: "Not Found: Location matching id wasn't found" });
          }
          else {
            res.status(200).json({ message: 'you are trying to find a location', searchlocation })
@@ -122,7 +122,7 @@ export default function location(server, mongoose) {
         else {
           const returnLocation = await Location.findById(req.params.id);
           if (!returnLocation) {
-            res.status(404).json({ message: "Bad Request: Location matching id wasn't found"});
+            res.status(404).json({ message: "Not Found: Location matching id wasn't found"});
           }
           else {
             const updateLocation = await Location.findByIdAndUpdate(req.params.id, req.body);
@@ -145,7 +145,7 @@ export default function location(server, mongoose) {
       if (correctIdCheck == true) {
         const deletedLocation = await Location.findByIdAndDelete(req.params.id);
         if (!deletedLocation) {
-          res.status(404).json({ message: "Bad Request: Location matching id wasn't found"});
+          res.status(404).json({ message: "Not Found: Location matching id wasn't found"});
         }
         else {
           res.json({ message: "Location has been deleted!", deletedLocation }); // Bekräftelse på att användaren har raderats.

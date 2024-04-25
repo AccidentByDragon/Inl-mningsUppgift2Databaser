@@ -9,7 +9,7 @@ export default function destination(server, mongoose) {
   server.get('/api/destinations', async (req, res) => {
     try {
       const destination = await Destination.find()      
-      res.status(200).json({ message: 'you are trying find to all destination', destination });
+      res.status(200).json({ message: 'you are trying to find all destinations', destination });
     } catch (error) {
       res.status(500).json({ error: error, errormessage: "could not connect to server database"})
     }
@@ -23,7 +23,7 @@ export default function destination(server, mongoose) {
         const limit = Number(req.params.limit);
         if (limit != undefined && limit > 0) {
           const tempDestination = await Destination.find().skip(page * limit).limit(limit)
-          res.status(200).json({ message: 'you are trying find to all destination', tempDestination });
+          res.status(200).json({ message: 'you are trying to find all destinations', tempDestination });
         }
         else {
           res.status(400).json({message: "Bad Request: limit(second number) must be a valid number and greater than 0"})
@@ -43,10 +43,10 @@ export default function destination(server, mongoose) {
       if (correctIdCheck == true) {
         const destination = await Destination.findById(req.params.id)
         if (!destination) {
-          return res.status(404).json({ message: "Bad Request: Destination matching id wasn't found" });
+          return res.status(404).json({ message: "Not Found: Destination matching id wasn't found" });
         }
         else {
-          res.status(200).json({ message: 'you are trying to a destination', destination }) //should this be country instead?
+          res.status(200).json({ message: 'you are trying to find a destination', destination }) //should this be country instead?
         }
       } else {
         res.status(400).json({ message: 'Bad request: you did not give a valid Id'})
@@ -96,7 +96,7 @@ export default function destination(server, mongoose) {
         else {
           const checkDestination = await Destination.findById(req.params.id)
           if (!checkDestination) {
-            return res.status(404).json({ message: "Bad Request: Destination matching id wasn't found"});
+            return res.status(404).json({ message: "Not Found: Destination matching id wasn't found"});
           }
           else {
             const updateDestination = await Destination.findByIdAndUpdate(req.params.id, req.body);
@@ -119,7 +119,7 @@ export default function destination(server, mongoose) {
       if (correctIdCheck == true) {
         const deletedDestination = await Destination.findByIdAndDelete(req.params.id);
         if (!deletedDestination) {
-          return res.status(404).json({ message: "Bad Request: Destination matching id wasn't found"});
+          return res.status(404).json({ message: "Not Found: Destination matching id wasn't found"});
         }
         else {
           res.json({ message: 'destination has been deleted!', deletedDestination }); // Bekräftelse på att användaren har raderats.
