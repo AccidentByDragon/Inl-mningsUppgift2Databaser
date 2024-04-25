@@ -10,7 +10,8 @@ API:
     
     http://localhost:3000/api/
     
-  Endpoint strukturen har två Endpoints dessa är Destinations och Locations
+  Endpoint strukturen har två Endpoints dessa är Destinations och Locations;
+  
   Destinations:
     
       http://localhost:3000/api/destinations
