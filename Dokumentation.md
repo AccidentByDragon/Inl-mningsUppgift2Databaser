@@ -1,12 +1,15 @@
 DOCUMENTATION:
 
 API:
-  Overview:  
-    APi:et är gjord som en del av en uppgift för en högkskolekurs, API:et är tänkt att innehålla och ge information om resemål och om länderna de är i, jag har valt att hålla det relativt enkelt och använda städer som resemål och hållit båda endpoint relativt enkela då de var egentligen inte huvudfokuset av uppgiften.
 
-  API Authentification & Authorization
+Overview: 
+
+APi:et är gjord som en del av en uppgift för en högkskolekurs, API:et är tänkt att innehålla och ge information om resemål och om länderna de är i, jag har valt att hålla det relativt enkelt och använda städer som resemål och hållit båda endpoint relativt enkela då de var egentligen inte huvudfokuset av uppgiften.
+
+API Authentification & Authorization
     Inget vid nuläget
-  API Endpoint Structure
+    
+API Endpoint Structure
     Grund API: 
     
     http://localhost:3000/api/
@@ -35,15 +38,17 @@ Locations är den endpoint som innehåller information om resemål, objekten i d
       http://localhost:3000/api/locations/:page/:limit
   
   API Headers:
-    API:et ska inte behöva några specifika headers i sina request annat än de som görs automatiskt av Postman
+  
+  API:et ska inte behöva några specifika headers i sina request annat än de som görs automatiskt av Postman
     De viktigaste responser som skickas tillbaka via Postman ska vara följande:
       X-Powered-By: Express
       Content-Type: application/json; charset=utf=8
 
   API Examples:
-    Provide example responses for each endpoint, showcasing both successful and error scenarios. These examples should help developers understand what to expect when interacting with the API.
-    Example request from Destinations, using the GET http://localhost:3000/api/destinations request:
-    Med en Status Kod 200
+  
+  Provide example responses for each endpoint, showcasing both successful and error scenarios. These examples should help developers understand what to expect when interacting with the API.
+  Example request from Destinations, using the GET http://localhost:3000/api/destinations request:
+  Med en Status Kod 200
     
     "{
       "message": "you are trying to find all destinations",
