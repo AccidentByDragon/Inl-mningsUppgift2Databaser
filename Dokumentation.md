@@ -18,7 +18,8 @@ API:
       
 Destinations är den endpoint som innehåller information om länder, objekten i denna endpoint innehåller följande fält: country, climate, locations och _id; country är en string som ska är tänkt att innehåller ett namnet av destinationen; climate är en string fält som ska innehålla information om väder, temperatur och annat klimat relaterat; locations ska vara en array som kan fyllas med namnen på locations som finns i Destinationen, jag ville ursprunligen att det skulle gå att få locations i destinations men jag fick nöja mig med att lägga in destinations som en array av strings som man updaterar manuellt via Postman; _id är den automatiskt givna objectId och är den som används vid sökningar på id.
       
-    Locations:
+  Locations:
+    
       http://localhost:3000/api/locations
 Locations är den endpoint som innehåller information om resemål, objekten i denna endpoint innehåller föjlande fält: locationName, Transport, Restaurants, Accomidation, Country och _id; locationName är en string fält som är tänkt att innehålla namnet av resemålet; Transport ska vara en array som ska fyllas med strings som namnger de olika transport former som finns vid resemålet; Restauraunts ska vara en array som ska fyllas med strings som namnger de olika restaurangersorter som finns vid resemålet; Accomidation ska vara en array som fylls med strings som namnger eller beskriver de boendealternativ som finns vid resemålet; Country är en string field som ska fyllas med en _id från Destinations endpoint för att den ska vara populerade med objekt från destinations; _id är den automatiskt givna objectId och är den som används vid sökningar på id. 
   API Parameters
