@@ -27,16 +27,17 @@ Destinations är den endpoint som innehåller information om länder, objekten i
     
       http://localhost:3000/api/locations
 Locations är den endpoint som innehåller information om resemål, objekten i denna endpoint innehåller föjlande fält: locationName, Transport, Restaurants, Accomidation, Country och _id; locationName är en string fält som är tänkt att innehålla namnet av resemålet; Transport ska vara en array som ska fyllas med strings som namnger de olika transport former som finns vid resemålet; Restauraunts ska vara en array som ska fyllas med strings som namnger de olika restaurangersorter som finns vid resemålet; Accomidation ska vara en array som fylls med strings som namnger eller beskriver de boendealternativ som finns vid resemålet; Country är en string field som ska fyllas med en _id från Destinations endpoint för att den ska vara populerade med objekt från destinations; _id är den automatiskt givna objectId och är den som används vid sökningar på id. 
-  API Parameters
+  
+API Parameters:
   
     Destinations:
       http://localhost:3000/api/destinations - Grund http metod som ger all data locations innehåller; används vid GET och POST metoder
       http://localhost:3000/api/destinations/:id - metod för att arbeta med en specifik obejkt med via Id, här byts :id ut mot objektId av den objekt man vill ha; Kan användas till GET, PUT och DELETE.
-      http://localhost:3000/api/destinations/:page/:limit
+      http://localhost:3000/api/destinations/:page/:limit - 
     Locations:
       http://localhost:3000/api/locations - Grund http metod som ger all data locations innehåller; används vid GET och POST metoder
       http://localhost:3000/api/locations/:id - metod för att arbeta med en specifik obejkt med via Id, här byts :id ut mot objektId av den objekt man vill ha; Kan användas till GET, PUT och DELETE.
-      http://localhost:3000/api/locations/:page/:limit
+      http://localhost:3000/api/locations/:page/:limit - 
   
   API Headers:
   
