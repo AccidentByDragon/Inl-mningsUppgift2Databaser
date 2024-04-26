@@ -52,9 +52,9 @@ Dessa är en rad olika test requests som går ut påa tt dubbelkolla att de fel 
 
 med denna test:
 
-  pm.test("Status code is 400", function () {
+    pm.test("Status code is 400", function () {
     pm.response.to.have.status(400);
-  });
+    });
 
 i detta test så matas in en avsiktligt fel request med en invalid Id dvs en id som inte är en id enligt mongoDB; sedan kollar vi om API:et ger den rätta felmeddelande som vi vill ah, i detta fall 400.
 ##### Bad get request cannot find id
@@ -64,9 +64,9 @@ Nästa Bad request test som finns är med ett giltig ID som inte finns i databas
 
 med testet:
 
-  pm.test("Status code is 404", function () {
+    pm.test("Status code is 404", function () {
     pm.response.to.have.status(404);
-  });
+    });
 
 Denna request och test matar in ett id som finns i destinations endpoint, vilket mongoDb accepterar dåd en känner igen den som ett id men skulle aldrig hitta ett obejkt, därför förväntas testet ge en 404 status kod då den inte hittar ett passande objekt.
 ### HTTP metoder
