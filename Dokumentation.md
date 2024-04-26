@@ -1,35 +1,33 @@
-DOCUMENTATION:
+# DOCUMENTATION:
 
-API:
-
-Overview: 
+## API:
+### Overview: 
 
 APi:et är gjord som en del av en uppgift för en högkskolekurs, API:et är tänkt att innehålla och ge information om resemål och om länderna de är i, jag har valt att hålla det relativt enkelt och använda städer som resemål och hållit båda endpoint relativt enkela då de var egentligen inte huvudfokuset av uppgiften.
 Jag valde att manuellt fylla databasen via Postman och MongoDB då jag vid tillfället tryckte att det var enklaste sättet att göra DB med. så de tester som förlitar sig på objektId behöver köras efter create tester.
 
-API Authentification & Authorization
-
+### API Authentification & Authorization
 Inget vid nuläget
     
-API Endpoint Structure
+### API Endpoint Structure
     Grund API: 
     
     http://localhost:3000/api/
     
   Endpoint strukturen har två Endpoints dessa är Destinations och Locations;
   
-  Destinations:
+#### Destinations:
     
       http://localhost:3000/api/destinations
       
 Destinations är den endpoint som innehåller information om länder, objekten i denna endpoint innehåller följande fält: country, climate, locations och _id; country är en string som ska är tänkt att innehåller ett namnet av destinationen; climate är en string fält som ska innehålla information om väder, temperatur och annat klimat relaterat; locations ska vara en array som kan fyllas med namnen på locations som finns i Destinationen, jag ville ursprunligen att det skulle gå att få locations i destinations men jag fick nöja mig med att lägga in destinations som en array av strings som man updaterar manuellt via Postman; _id är den automatiskt givna objectId och är den som används vid sökningar på id.
       
-  Locations:
+#### Locations:
     
       http://localhost:3000/api/locations
 Locations är den endpoint som innehåller information om resemål, objekten i denna endpoint innehåller föjlande fält: locationName, Transport, Restaurants, Accomidation, Country och _id; locationName är en string fält som är tänkt att innehålla namnet av resemålet; Transport ska vara en array som ska fyllas med strings som namnger de olika transport former som finns vid resemålet; Restauraunts ska vara en array som ska fyllas med strings som namnger de olika restaurangersorter som finns vid resemålet; Accomidation ska vara en array som fylls med strings som namnger eller beskriver de boendealternativ som finns vid resemålet; Country är en string field som ska fyllas med en _id från Destinations endpoint för att den ska vara populerade med objekt från destinations; _id är den automatiskt givna objectId och är den som används vid sökningar på id. 
   
-API Parameters:
+### API Parameters:
   
     Destinations:
       http://localhost:3000/api/destinations - Grund http metod som ger all data locations innehåller; används vid GET och POST metoder
@@ -40,14 +38,14 @@ API Parameters:
       http://localhost:3000/api/locations/:id - metod för att arbeta med en specifik obejkt med via Id, här byts :id ut mot objektId av den objekt man vill ha; Kan användas till GET, PUT och DELETE.
       http://localhost:3000/api/locations/:page/:limit - 
   
-  API Headers:
+### API Headers:
   
   API:et ska inte behöva några specifika headers i sina request annat än de som görs automatiskt av Postman
     De viktigaste responser som skickas tillbaka via Postman ska vara följande:
       X-Powered-By: Express
       Content-Type: application/json; charset=utf=8
 
-  API Examples:
+### API Examples:
   
   Provide example responses for each endpoint, showcasing both successful and error scenarios. These examples should help developers understand what to expect when interacting with the API.
   Example request from Destinations, using the GET http://localhost:3000/api/destinations request:
@@ -124,7 +122,7 @@ API Parameters:
         Status 500
         "could not connect to server database"
   
-  API error handling:
+### API error handling:
   
     Status 500, API:et ger denna status kod vid ett kommunikations fel med Databasen/Servern bästa lösningen är omstart av servern.
   
@@ -133,5 +131,5 @@ API Parameters:
     Status 404, API:et är byggd att ge denna status när den inte hittar något som passar på request, oftast beror detta på att den ID som requesten anvädner inte finns i endpointen t.ex om man söker i Locations med ett ObjektId från Destinations.
     
 
-  API throttling:
+### API throttling:
     rate limiting är implementerade och är begränsad till 100 förfrågningar under 15 minuter
