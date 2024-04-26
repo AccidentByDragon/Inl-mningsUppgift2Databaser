@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "6620ec152c10d5f1f754990b"
+  },
+  "locationName": "Stockholm",
+  "Transport": [
+    "Trams",
+    "Busses",
+    "Ferries",
+    "Rail"
+  ],
+  "Restauraunts": [
+    "Fastfood Chains",
+    "Pizzerias"
+  ],
+  "Accomidation": [
+    "Hotels",
+    "AirBnB"
+  ],
+  "Country": {
+    "$oid": "6620dd44c537f853cc47df96"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6620eee6171350cf4629b228"
+  },
+  "locationName": "Göteborg",
+  "Transport": [
+    "Trams",
+    "Busses",
+    "Ferries",
+    "Rail"
+  ],
+  "Restauraunts": [
+    "Fastfood Chains",
+    "Pizzerias"
+  ],
+  "Accomidation": [
+    "Hotels",
+    "AirBnB"
+  ],
+  "Country": {
+    "$oid": "6620dd44c537f853cc47df96"
+  },
+  "__v": 0
+}]

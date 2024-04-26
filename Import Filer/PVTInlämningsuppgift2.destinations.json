@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "6620dd44c537f853cc47df96"
+  },
+  "country": "Sweden",
+  "climate": "Temperate",
+  "locations": [
+    "Stockholm",
+    "Gothenburg"
+  ],
+  "__v": 0
+}]
