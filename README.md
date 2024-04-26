@@ -12,8 +12,11 @@ dessa installeras genom, gärna i denna ordning:
 Många av testerna är byggda genom envieroment varibles i postman därför ska envieroment importeras för att de ska kunna fungera ordentligt;
 Envieroment finns här:
 Import Filer\Locations & Destinations.postman_environment.json
-### postman mock server:
-
+### mongoDB Atlas link
+https://cloud.mongodb.com/v2/6613fa50eb8fd13d2991c8f0#/clusters
+#### ändra server connection string inuti Server.js!
+Gå in i Server.js och byt ut connection string mot din egna
+  
 
 ### Without connection string:
 Vissa utav testerna är beroende av existerande data, för att dessa ska fungera gör följande:
