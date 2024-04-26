@@ -20,7 +20,7 @@ Enviroment finns här:
 https://cloud.mongodb.com/v2/6613fa50eb8fd13d2991c8f0#/clusters
 #### ändra server connection string inuti Server.js!
 Gå in i Server.js och byt ut connection string mot din egna
-### Data dependancies:
+### Övriga steg
 Vissa utav testerna är beroende av existerande data, för att dessa ska fungera gör följande:
 #### 1. Importering av JSON till Databaser
 Importera JSON filerna in i MongoDB:
