@@ -38,10 +38,10 @@ Request:
 
 Metod:
 
-  pm.test("returned object has right id", function () {
-    pm.expect(pm.response.json()).to.be.an('object');
-    pm.expect(pm.response.json().searchlocation).to.have.property('_id').that.eqls(pm.environment.get('ogLocId'));
-  });
+    pm.test("returned object has right id", function () {
+      pm.expect(pm.response.json()).to.be.an('object');
+      pm.expect(pm.response.json().searchlocation).to.have.property('_id').that.eqls(pm.environment.get('ogLocId'));
+    });
 
 Denna kollar om denna returnerade objektet har ett id som stämmer med den inmatade id:et, genom att jämföra med den en variable med som är sparad i enviroment som också är den som används för att söka, just denna sätt att testa är då jag ansåg att det var den enklaste sättet att kolla om responser var korrekt medd en inmatade id; vid Destinations så ser testet ut ungefär likadant med locations byt till destinations och "ogLocId" byt mot "ogDestId".
 #### GET bad requests
@@ -80,14 +80,14 @@ Dessa tester fokuserad på att genomföra Create metoder och kolla att de görs 
 
   2. den andra testen är en test som går igenom objektet som skapats och kollar att API faktiskt har tagit emot requesten och matat in allt i rätt fält, sedan spara den ett id som API:et säger tillhör det nya objektet(destID) inför den tredje testet. detta görs genom följande kod:
 
-  pm.test("Response body has created Destination with _id property", function () {
-    pm.expect(pm.response.json().createdDestination._id).to.exist;
-    var savedID = pm.response.json().createdDestination._id;
-    savedObjekt = pm.response.json().createdDestination;
-    console.log(savedID);
-    pm.environment.set('destID', savedID)
-    console.log(pm.environment.get('destID'))
-  });
+    pm.test("Response body has created Destination with _id property", function () {
+      pm.expect(pm.response.json().createdDestination._id).to.exist;
+      var savedID = pm.response.json().createdDestination._id;
+      savedObjekt = pm.response.json().createdDestination;
+      console.log(savedID);
+      pm.environment.set('destID', savedID)
+      console.log(pm.environment.get('destID'))
+    });
 
   3. den tredje testet är en chain request som skickar en GET till samma databas med det sparade ID, detta görs för att dubbelkolla att det faktiskt finns ett objekt som passar har den ID som API:et säger den har skapat create requesten under, detta gör vi med följande kod:
 
