@@ -28,8 +28,8 @@ ajg valde denna metod för att göra testet då det är en någorlunda simpelt m
 #### GET via ID
 Dessa tester finns för alla endpoints i databasen och har samma struktur på testerna, där efter status kod test så genomförs två tester den första är en content type check för i samma stil som vid GET all testerna dvs. dessa metoder:
 
-  pm.expect(pm.response.headers.get('Content-Type')).to.exist;
-  pm.expect(pm.response.headers.get("Content-Type")).to.include('application/json')
+    pm.expect(pm.response.headers.get('Content-Type')).to.exist;
+    pm.expect(pm.response.headers.get("Content-Type")).to.include('application/json')
 
 Därefter görs en enkle test för att kolla om den objekt har ett id som stämmer den id man söker med, detta görs med följande request och test metod:
 Request: 
