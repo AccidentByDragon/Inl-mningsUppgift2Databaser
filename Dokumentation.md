@@ -5,6 +5,7 @@ API:
 Overview: 
 
 APi:et är gjord som en del av en uppgift för en högkskolekurs, API:et är tänkt att innehålla och ge information om resemål och om länderna de är i, jag har valt att hålla det relativt enkelt och använda städer som resemål och hållit båda endpoint relativt enkela då de var egentligen inte huvudfokuset av uppgiften.
+Jag valde att manuellt fylla databasen via Postman och MongoDB då jag vid tillfället tryckte att det var enklaste sättet att göra DB med. så de tester som förlitar sig på objektId behöver köras efter create tester.
 
 API Authentification & Authorization
 
@@ -133,4 +134,4 @@ API Parameters:
     
 
   API throttling:
-    Finns ingen implementerade throttling eller limiting vid nuvarande tillfälle
+    rate limiting är implementerade och är begränsad till 100 förfrågningar under 15 minuter
