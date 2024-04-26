@@ -48,7 +48,8 @@ Locations är den endpoint som innehåller information om resemål, objekten i d
 ### API Examples:
   
   Provide example responses for each endpoint, showcasing both successful and error scenarios. These examples should help developers understand what to expect when interacting with the API.
-  Example request from Destinations, using the GET http://localhost:3000/api/destinations request:
+  #### Example request from Destinations
+  using the GET http://localhost:3000/api/destinations request:
   Med en Status Kod 200
     
     "{
@@ -73,7 +74,7 @@ Locations är den endpoint som innehåller information om resemål, objekten i d
         }
       ]
     }"
-    Möjliga fel:
+  #### Möjliga fel:
     Status Kod 500, "could not connect to server database"
   Example request from Locations, using GET http://localhost:3000/api/locations/:id med en accepterad objektID
   Med en Status Kod 200:
