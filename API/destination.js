@@ -86,8 +86,9 @@ export default function destination(server, mongoose) {
     try {
       const correctIdCheck = mongoose.isValidObjectId(req.params.id)
       if (correctIdCheck == true) {
+        const  {country, climate, locations} = req.body
         if (country == undefined || climate == undefined || locations == undefined)
-        {
+        {          
           res.status(400).json({ message: "Country, Climate and locations must not be undefined" })
         }
         else if (country.length <= 0 || climate.length <= 0) {

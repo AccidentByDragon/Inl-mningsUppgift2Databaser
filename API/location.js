@@ -126,7 +126,7 @@ export default function location(server, mongoose) {
           }
           else {
             const updateLocation = await Location.findByIdAndUpdate(req.params.id, req.body);
-            const NewLocation = await Location.findById(req.params.id);
+            const NewLocation = await Location.findById(req.params.id).populate("Country");
             res.status(200).json({ updatedLocation: updateLocation, Changedto: NewLocation });
           }
         }
