@@ -1,0 +1,15 @@
+{
+	"id": "4f29e393-bb3b-4931-888e-c1a829e3a312",
+	"values": [
+		{
+			"key": "Host",
+			"value": "http://localhost:3000/api/",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2024-04-27T12:03:49.839Z",
+	"_postman_exported_using": "Postman/10.24.24"
+}

@@ -3,9 +3,11 @@
 Satsar på G, VG är helt ok, jag fick väldigt ont om tid vid testandet pga hälso problem
 ## Postman
 ### Collections link:
+
 https://www.postman.com/karlloe/workspace/expressnosql
+
 ### Postman Mockserver
-Jag har inte skapat ett åostman mockserver för projektet då jag inte han göra det och det finns inte som ett krav under inlämningen
+Jag har försökt skapa en mockserver för collection men är osäker på omdet har fungerat, så med tanke på et har jag har valt att ändå skicka in det som det är pågrund av tidsbrist 
 ## INSTRUKTIONER:
 ### Beroenden
 Programmet använder sig utav NPM, Express, MongoDB, Express-rate-limiter, nodemon och faker
@@ -19,12 +21,16 @@ dessa installeras genom, gärna i denna ordning:
 
 ### Importera Enviroment:
 Många av testerna är byggda genom envieroment varibles i postman därför ska envieroment importeras för att de ska kunna fungera ordentligt;
-Enviroment finns här:
+Enviroments osv finns här:
 
+    Import Filer\workspace.postman_globals.json
     Import Filer\Locations & Destinations.postman_environment.json
+    Import Filer\resePlanerareMock.postman_environment.json
 
 ### mongoDB Atlas link
+
 https://cloud.mongodb.com/v2/6613fa50eb8fd13d2991c8f0#/clusters
+
 #### ändra server connection string inuti Server.js!
 Gå in i Server.js och byt ut connection string mot din egna
 ### Övriga steg
