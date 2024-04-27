@@ -16,24 +16,27 @@ kollar att datan den får tillbaka är av rätt content typ, detta gjordes genom
 dessa användes för att kolla att content-type header finns och att den faktiskt är json.
 därefter så görs ett sista test som kollar om responsen är en Array, detta gör genom följande metod:
 
-  pm.test("Response should be an array", function () {
+    pm.test("Response should be an array", function () {
      pm.expect(pm.response.json().destination).to.be.an('array');
-  });
+    });
 
-denna test (i detta exemplet mot destinations endpoint) kollar om responsen innehålelr en array vilket vi förväntar oss att den ska göra om den hämtar allt i en endpoint
+denna test (i detta exemplet mot destinations endpoint) kollar om responsen innehåller en array vilket vi förväntar oss att den ska göra om den hämtar allt i en endpoint
 anledning till att jag gjort testet på denna vis är för att det var en snabbt metod att kolla om GET ALL requests ger en korrekt respons samt som det kollar att content type är korrekt.
 #### GET ALL destinations/locations Paginerade
 dessa tester går ut på att be API:et att paginerar informationen genom följande tester och finns för båda endpoints:
-1. Kollar om responsen följer den limit den har fått, detta görs genom att först spara en variabel som ska innehålla limiten (i dessa exemplen 1), och sedan kolla om den array som kommer som respons faktiskt ahr en längd av 1; därefter sparas den sista värdet av array för att användas i andra steget av testen.
-2. efter första testet görs en test som kollar om request parametrarna ändras ger en anna resultat detta görs genom genom att skicka en chain request där page är 2 med en limit av 1 t.ex(http://localhost:3000/api/destinations/2/1) för att sedan kolla om de sista värdet i den nya array som ges i respons är inte samma som den sparade värdet från första delen av testet
-ajg valde denna metod för att göra testet då det är en någorlunda simpelt men tydlig sätt att testa om paginering görs rätt, i detta fallet används ett lågt värde för limit då databasen inte innehåller särskilt mycket data.
+
+  1. Kollar om responsen följer den limit den har fått, detta görs genom att först spara en variabel som ska innehålla limiten (i dessa exemplen 1), och sedan kolla om den array som kommer som respons faktiskt har en längd av 1; därefter sparas den sista värdet av array för att användas i andra steget av testen.
+
+  2. efter första testet görs en test som kollar om request parametrarna ändras ger en anna resultat detta görs genom genom att skicka en chain request där page är 2 med en limit av 1 t.ex(http://localhost:3000/api/destinations/2/1) för att sedan kolla om de sista värdet i den nya array som ges i respons är inte samma som den sparade värdet från första delen av testet
+
+jag valde denna metod för att göra testet då det är en någorlunda simpelt men tydlig sätt att testa om paginering görs rätt, i detta fallet används ett lågt värde för limit då databasen inte innehåller särskilt mycket data.
 #### GET via ID
 Dessa tester finns för alla endpoints i databasen och har samma struktur på testerna, där efter status kod test så genomförs två tester den första är en content type check för i samma stil som vid GET all testerna dvs. dessa metoder:
 
     pm.expect(pm.response.headers.get('Content-Type')).to.exist;
     pm.expect(pm.response.headers.get("Content-Type")).to.include('application/json')
 
-Därefter görs en enkle test för att kolla om den objekt har ett id som stämmer den id man söker med, detta görs med följande request och test metod:
+Därefter görs en enkle test för att kolla om den objekt har ett id som stämmer med den id man söker med, detta görs med följande request och test metod:
 Request: 
 
   http://localhost:3000/api/locations/{{ogLocId}}
@@ -121,18 +124,18 @@ Dessa tester gick ut på att genomföra Update metoderna och verifiera att de fa
 
   2. Andra steget i tester är att göra en Chain Get request för att hämta ut objektet och kolla om den har sparats rätt genom att jämföra den tidigare sparade objektet med den som returneras genom chain requesten detta gör genom följande metod:
 
-      pm.test("The updated info is saved", function(){
-        pm.sendRequest('http://localhost:3000/api/locations/' + pm.environment.get('ogLocId'), (error, response) => {
-        if (error) {
+        pm.test("The updated info is saved", function(){
+          pm.sendRequest('http://localhost:3000/api/locations/' + pm.environment.get('ogLocId'), (error, response) => {
+          if (error) {
           console.log(error);
-        }
-          console.log(checkedupdate);
-          console.log(response.json().searchlocation);
-          pm.test('response should be same as updated info', function () {
-          pm.expect(response.json().searchlocation).to.eql(checkedupdate)
-        })    
+          }
+            console.log(checkedupdate);
+            console.log(response.json().searchlocation);
+            pm.test('response should be same as updated info', function () {
+            pm.expect(response.json().searchlocation).to.eql(checkedupdate)
+          })    
+        });
       });
-    });
 
   Denna test dubbellkollar om den tidigare updaterade objektet har faktiskt sparats korrekt och returneras om man letar efter den via en GET request, för att göra detta körs en GET request som siktar på den Id som används i de tidigare requests för att sedan jämföra den med den objekt som sparades i första steget, med logiken att om dessa är likadana så har Update gjort det den ska och sparat ned den korrekt.
 
