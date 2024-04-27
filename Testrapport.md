@@ -125,14 +125,14 @@ Dessa tester gick ut på att genomföra Update metoderna och verifiera att de fa
   2. Andra steget i tester är att göra en Chain Get request för att hämta ut objektet och kolla om den har sparats rätt genom att jämföra den tidigare sparade objektet med den som returneras genom chain requesten detta gör genom följande metod:
 
       pm.test("The updated info is saved", function(){
-        pm.sendRequest('http://localhost:3000/api/locations/' + pm.environment.get('ogLocId'), (error, response) => {
-        if (error) {
-        console.log(error);
-        }
-          console.log(checkedupdate);
-          console.log(response.json().searchlocation);
-          pm.test('response should be same as updated info', function () {
-          pm.expect(response.json().searchlocation).to.eql(checkedupdate)
+      pm.sendRequest('http://localhost:3000/api/locations/' + pm.environment.get('ogLocId'), (error, response) => {
+      if (error) {
+      console.log(error);
+      }
+        console.log(checkedupdate);
+        console.log(response.json().searchlocation);
+        pm.test('response should be same as updated info', function () {
+        pm.expect(response.json().searchlocation).to.eql(checkedupdate)
         })    
       });
       });
