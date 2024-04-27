@@ -7,7 +7,7 @@ Satsar på G, VG är helt ok, jag fick väldigt ont om tid vid testandet pga hä
 https://www.postman.com/karlloe/workspace/expressnosql
 
 ### Postman Mockserver
-Jag har försökt skapa en mockserver för collection men är osäker på om det har fungerat eller om ajg missförstått, så med tanke på et har jag har valt att ändå skicka in det som det är pågrund av tidsbrist 
+Jag har försökt skapa en mockserver för collection men är osäker på om det har fungerat eller om jag missförstått, så med tanke på det har jag har valt att ändå skicka in det som det är pågrund av tidsbrist 
 ## INSTRUKTIONER:
 ### Beroenden
 Programmet använder sig utav NPM, Express, MongoDB, Express-rate-limiter, nodemon och faker
